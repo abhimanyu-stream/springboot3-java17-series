@@ -1,2 +1,4 @@
-package com.stream.cqrswritedbreaddb.dto;public class ProductReadResponse {
+package com.stream.cqrswritedbreaddb.dto;
+
+public class ProductReadResponse {
 }

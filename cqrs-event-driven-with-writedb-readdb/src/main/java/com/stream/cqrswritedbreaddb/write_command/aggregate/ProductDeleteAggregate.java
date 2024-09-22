@@ -1,2 +1,4 @@
-package com.stream.cqrswritedbreaddb.write_command.aggregate;public class ProductDeleteAggregate {
+package com.stream.cqrswritedbreaddb.write_command.aggregate;
+
+public class ProductDeleteAggregate {
 }
