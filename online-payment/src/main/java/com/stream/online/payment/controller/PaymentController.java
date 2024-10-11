@@ -5,6 +5,7 @@ import com.stream.online.payment.dto.PaymentCreateRequest;
 import com.stream.online.payment.dto.PaymentResponse;
 import com.stream.online.payment.service.PaymentService;
 import com.stream.online.payment.util.ConvertBytesToHex;
+import com.stream.online.payment.util.KeyStoreUtil;
 import com.stream.online.payment.util.UniqueTransactionIdGenerator;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -23,7 +24,10 @@ import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.security.InvalidKeyException;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
 import java.util.UUID;
 
 
@@ -37,15 +41,17 @@ public class PaymentController {
     private final OkHttpClient okHttpClient;
     private final ConvertBytesToHex convertBytesToHex;
     private final UniqueTransactionIdGenerator uniqueTransactionIdGenerator;
+    private final KeyStoreUtil keyStoreUtil;
 
     private int amount = 100;
 
     @Autowired
-    public PaymentController(PaymentService paymentService, OkHttpClient okHttpClient, ConvertBytesToHex convertBytesToHex, UniqueTransactionIdGenerator uniqueTransactionIdGenerator) throws IOException {
+    public PaymentController(PaymentService paymentService, OkHttpClient okHttpClient, ConvertBytesToHex convertBytesToHex, UniqueTransactionIdGenerator uniqueTransactionIdGenerator, KeyStoreUtil keyStoreUtil) throws IOException {
         this.paymentService = paymentService;
         this.okHttpClient = okHttpClient;
         this.convertBytesToHex = convertBytesToHex;
         this.uniqueTransactionIdGenerator = uniqueTransactionIdGenerator;
+        this.keyStoreUtil = keyStoreUtil;
     }
 
     @PostMapping("/create")
@@ -55,7 +61,7 @@ public class PaymentController {
     }
 
     @PostMapping( "/pay")
-    public String pay(@RequestBody PaymentCreateRequest inputBody) throws NoSuchAlgorithmException, InvalidKeyException {
+    public String pay(@RequestBody PaymentCreateRequest inputBody) throws NoSuchAlgorithmException, InvalidKeyException, UnrecoverableKeyException, CertificateException, KeyStoreException, IOException {
 
         // 1. Extract user input
         String cardNumber = inputBody.getCardNumber();
@@ -80,9 +86,9 @@ public class PaymentController {
          * endpoint
          * returnUrl or callBackUrl
          * */
-        String epiId = "";
-        String epiKey = "";
-        String baseUrl = "";
+        String epiId = "apikeyid";
+        String epiKey = "apikey";
+        String baseUrl = "http://payments-service:8080";
         String endpoint = "/sale";
 
         // 3. Define request headers and body content
@@ -151,7 +157,11 @@ public class PaymentController {
     }
 
     // Create signature using the HMAC-SHA-256 algorithm from endpoint + payload and epiKey
-    public String createSignature(@NotNull String endpoint, @NotNull String payload, @NotNull String epiKey) throws NoSuchAlgorithmException, InvalidKeyException {
+    public String createSignature(@NotNull String endpoint, @NotNull String payload, @NotNull String epiKey) throws NoSuchAlgorithmException, InvalidKeyException, UnrecoverableKeyException, CertificateException, KeyStoreException, IOException {
+
+
+        keyStoreUtil.processKeystorep12();
+
         String algorithm = "HmacSHA256";
         SecretKeySpec secretKeySpec = new SecretKeySpec(epiKey.getBytes(), algorithm);
         Mac mac = Mac.getInstance(algorithm);

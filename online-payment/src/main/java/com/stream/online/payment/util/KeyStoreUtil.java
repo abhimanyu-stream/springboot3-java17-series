@@ -1,4 +1,4 @@
-package com.interview.example;
+package com.stream.online.payment.util;
 
 
 import org.springframework.beans.factory.annotation.Value;
@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.security.*;
@@ -14,7 +15,7 @@ import java.security.cert.CertificateException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
-@Configuration
+@Component
 public class KeyStoreUtil {
 
 
@@ -23,46 +24,40 @@ public class KeyStoreUtil {
 	//You can’t bind property value to a static variable
 	//You can’t bind property value to a local variable
 
-	private static KeyStore keystore = null;
+	private  KeyStore keystore = null;
 
-	private static Certificate certificate = null;
-	private static KeyPair keyPair = null;
-	private static RSAPrivateKey rsaPrivateKey = null;
-	private static RSAPublicKey rsaPublicKey = null;
+	private  Certificate certificate = null;
+	private  KeyPair keyPair = null;
+	private  RSAPrivateKey rsaPrivateKey = null;
+	private  RSAPublicKey rsaPublicKey = null;
 
 
-	//private static String keyStorePKCE12Path="classpath:keys\\keystore.p12";
+
 	@Value("${keystorepkce12.location}")
-	//private static String keyStorePKCE12Path;
-	private static String keyStorePKCE12Path="classpath:keys\\keystore.p12";
+	private String keyStorePKCE12Path;
+	//private String keyStorePKCE12Path="classpath:keys\\keystore.p12";
 
 	@Value("${keystorepkce12.password}")
-	//private static String keyStorePKCE12Password;
-	private static String keyStorePKCE12Password="abhimanyu";
+	private String keyStorePKCE12Password;
+	//private String keyStorePKCE12Password="abhimanyu";
 
 
 	@Value("${keystorepkce12.alias}")
-	//private static String keypairPKCE12Alias;
-	private static String keypairPKCE12Alias="signjwt";
+	private String keypairPKCE12Alias;
+	//private String keypairPKCE12Alias="signjwt";
 	@Value("${keystorepkce12.deststore.password}")
-	//private  String keyStroePKCE12DestinationStorePassword;
-	private  String keyStroePKCE12DestinationStorePassword="abhimanyu";
+	private  String keyStroePKCE12DestinationStorePassword;
+	//private  String keyStroePKCE12DestinationStorePassword="abhimanyu";
 	@Value("${keystorepkce12.destkey.password}")
-	//private  String keyStroePKCE12DestinationKeyPassword;
-	private  String keyStroePKCE12DestinationKeyPassword="abhimanyu";
+	private  String keyStroePKCE12DestinationKeyPassword;
+	//private  String keyStroePKCE12DestinationKeyPassword="abhimanyu";
 	@Value("${keystorepkce12.storetype}")
-	//private static String keyStoreType;
-	private static String keyStoreType="PKCS12";
+	private String keyStoreType;
+	//private String keyStoreType="PKCS12";
 
 
 
-	public static void main(String[] args) throws UnrecoverableKeyException, CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException {
-		processKeystorep12();
-	}
-
-
-
-	public static void processKeystorep12() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
+	public void processKeystorep12() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext();
 		Resource classpathResource = applicationContext.getResource(keyStorePKCE12Path);
@@ -105,23 +100,23 @@ public class KeyStoreUtil {
 
 
 
-	public static KeyStore getKeystore() {
+	public KeyStore getKeystore() {
 		return keystore;
 	}
 
-	public static Certificate getCertificate() {
+	public Certificate getCertificate() {
 		return certificate;
 	}
 
-	public static KeyPair getKeyPair() {
+	public KeyPair getKeyPair() {
 		return keyPair;
 	}
 
-	public static RSAPrivateKey getRsaPrivateKey() {
+	public RSAPrivateKey getRsaPrivateKey() {
 		return rsaPrivateKey;
 	}
 
-	public static RSAPublicKey getRsaPublicKey() {
+	public RSAPublicKey getRsaPublicKey() {
 		return rsaPublicKey;
 	}
 
