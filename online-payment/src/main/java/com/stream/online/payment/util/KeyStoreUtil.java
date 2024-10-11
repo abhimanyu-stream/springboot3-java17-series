@@ -69,14 +69,12 @@ public class KeyStoreUtil {
 		keystore.load(inputStream, password);
 		inputStream.close();
 
-		// Get the alias for your key pair
-		//String alias = "signjwt"; // Replace with the correct alias
+
 
 		// Retrieve the private key
-
 		rsaPrivateKey = (RSAPrivateKey) keystore.getKey(keypairPKCE12Alias, password);
 		if (rsaPrivateKey instanceof RSAPrivateKey) {
-			// Get certificate of public key
+			// Get certificate
 			certificate = keystore.getCertificate(keypairPKCE12Alias);
 
 			// Get public key

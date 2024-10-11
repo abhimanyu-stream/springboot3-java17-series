@@ -1,8 +1,6 @@
 package com.stream.online.payment.configuration;
 
-import com.stream.online.payment.util.ConvertBytesToHex;
-import com.stream.online.payment.util.KeyStoreUtil;
-import com.stream.online.payment.util.UniqueTransactionIdGenerator;
+import com.stream.online.payment.util.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,4 +19,30 @@ public class UtilConfiguration {
     public KeyStoreUtil getKeyStoreUtil(){
         return new KeyStoreUtil();
     }
+    @Bean
+    public UniqueOrderNumber getUniqueOrderNumber(){
+        return new UniqueOrderNumber();
+    }
+    @Bean
+    public IFSCValidator getIFSCValidator(){
+        return new IFSCValidator();
+    }
+    @Bean
+    public SecureUpiMaskerAndValidator getSecureUpiMasker(){
+        return new SecureUpiMaskerAndValidator();
+    }
+    @Bean
+    public CreditCardValidatorAndMasker getCreditCardValidatorAndMasker(){
+        return new CreditCardValidatorAndMasker();
+    }
+    @Bean
+    public DebitCardValidatorAndMasker getDebitCardValidatorAndMasker(){
+        return new DebitCardValidatorAndMasker();
+    }
+    @Bean
+    public PayPalIdValidatorAndMasker getPayPalIdValidatorAndMasker(){
+        return new PayPalIdValidatorAndMasker();
+
+    }
+
 }
