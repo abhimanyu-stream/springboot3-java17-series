@@ -1,0 +1,20 @@
+In a Spring Boot application, the root directory typically refers to the directory where the main application class (the one with the @SpringBootApplication annotation) resides. This is also the directory from which you run the application using the mvn spring-boot:run command.
+
+Key Points:
+
+Project Root:
+
+This is the top-level directory of your Spring Boot project, containing the pom.xml file and other project files.
+
+Source Code Root:
+
+By default, the source code for your application resides in the src/main/java directory within the project root.
+
+Static Content Root:
+
+If you have static content (e.g., images, CSS files), they are typically placed in the src/main/resources/static directory.
+Example:
+
+If your main application class is located at src/main/java/com/example/MyApp.java, then the root directory of your Spring Boot application would be the directory containing the src folder.
+
+E:\ws-abhimanyu\springboot3-java17-series\sortbydob

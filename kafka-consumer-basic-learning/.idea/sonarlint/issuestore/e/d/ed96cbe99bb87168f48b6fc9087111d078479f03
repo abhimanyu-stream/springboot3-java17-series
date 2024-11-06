@@ -1,0 +1,15 @@
+
+}
+java:S1192"`Define a constant instead of duplicating this literal "consumer consume the events {} " 3 times.(ÆÔæù8×„ß¦›2
+A
+java:S2629"$Invoke method(s) only conditionally.(ÆÔæù8Çáİó2
+~
+java:S3457"aNo need to call "toString()" method as formatting and string conversion is done by the Formatter.(ÆÔæù8×áİó2
+\
+java:S6213$":Rename this variable to not match a restricted identifier.(Ô¾»íüÿÿÿÿ8ÙÖÜ×­2
+L	java:S106&"+Replace this use of System.out by a logger.(¡„º¹ÿÿÿÿÿ8ÚÖÜ×­2
+L	java:S106,"+Replace this use of System.out by a logger.(ñ•Æÿÿÿÿÿ8ÛÖÜ×­2
+\
+java:S6213@":Rename this variable to not match a restricted identifier.(‹·ß‘ûÿÿÿÿ8šüï×­2
+L	java:S106B"+Replace this use of System.out by a logger.(ï…Šşÿÿÿÿ8šüï×­2
+L	java:S106H"+Replace this use of System.out by a logger.(³´šŠøÿÿÿÿ8›üï×­2

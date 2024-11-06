@@ -1,0 +1,142 @@
+git config --global push.autoSetupRemote true
+
+git push --set-upstream origin master
+
+
+If the GitHub repo has seen new commits pushed to it, while you were working locally, I would advise using:
+
+git pull --rebase
+git push
+The full syntax is:
+
+git pull --rebase origin main
+git push origin main
+With Git 2.6+ (Sept. 2015), after having done (once)
+
+git config --global pull.rebase true
+git config --global rebase.autoStash true
+
+
+https://www.freecodecamp.org/news/error-failed-to-push-some-refs-to-how-to-fix-in-git/
+
+When collaborating with other developers using Git, you might encounter the error: failed to push some refs to [remote repo] error.
+
+This error mainly occurs when you attempt to push your local changes to GitHub while the local repository (repo) has not yet been updated with any changes made in the remote repo.
+
+So Git is trying to tell you to update the local repo with the current changes in the remote before pushing your own changes. This is necessary so that you don't override the changes made by others.
+
+We'll be discussing two possible ways of fixing this error in the sections that follow.
+
+How to Fix the error: failed to push some refs to Error in Git
+We can fix the error: failed to push some refs to [remote repo] error in Git using the git pull origin [branch] or git pull --rebase origin [branch] commands. In most cases, the latter fixes the error.
+
+Let's go over how you can use the commands above.
+
+How to Fix error: failed to push some refs to Error in Git Using git pull
+To send a pull request means to "fetch" new changes made to the remote repo and merge them with the local repo.
+
+Once the merging is done, you can then push your own code changes to GitHub.
+
+In our case, we're trying to get rid of the error: failed to push some refs to [remote repo] error by sending a pull request.
+
+Here's how you can do that:
+
+git pull origin main
+If you're working with a different branch, then you'd have to replace main in the example above with the name of your branch.
+
+Just keep in mind that there are chances of failure when using this command to sync your remote and local repos to get rid of the error. If the request succeeds, then go on and run the command below to push your own changes:
+
+git push -u origin main
+If the error persists, you'll get an error that says: fatal: refusing to merge unrelated histories. In that case, use the solution in the next section.
+
+How to Fix error: failed to push some refs to Error in Git Using git pull --rebase
+The git pull --rebase command is helpful in situations where your local branch is a commit behind the remote branch.
+
+To fix the error, go on and run following commands:
+
+git pull --rebase origin main
+git log 
+git push -u origin main
+If the first command above runs successfully, you should get a response that says: Successfully rebased and updated refs/heads/main.
+
+The second command pushes your local repo's current state to the remote branch.
+
+Summary
+In this article, we talked about the error: failed to push some refs to [remote repo] error.
+
+This error occurs when you attempt to push your local changes to the remote repo without updating your local repo with new changes made to the remote repo.
+
+We discussed two commands that you can use to fix the error: the git pull origin [branch] and git pull --rebase origin [branch] commands.
+
+I hope this helps you fix the error.
+
+Happy coding!
+
+
+describe git branch -M main
+Copilot
+The command git branch -M main is used to rename the current branch to main. The -M flag stands for "move/rename," and it forcefully renames the branch even if the target name (main) already exists.
+
+Here's what it does in steps:
+
+Renames the current branch: If you're on a branch named master or any other branch and run this command, it renames your current branch to main.
+
+Overrides any existing branch named main: If a branch named main already exists, it will be replaced by the current branch.
+
+So, if your repository still uses the master branch by default and you want to update it to the more modern main naming convention, this command does just that.
+
+describe git branch -m main development
+Copilot
+The command git branch -m main development is used to rename an existing branch. In this case, it will rename the branch main to development.
+
+Here's a breakdown:
+
+git branch: The Git command for working with branches.
+
+-m: This flag stands for "move/rename". It renames the current branch.
+
+main: This is the old branch name (the branch you're renaming).
+
+development: This is the new branch name.
+
+So, running this command will change the branch name from main to development. This is useful if you want to better organize your branches or follow a different naming convention.
+
+The correct command to create a new branch named development and switch to it is:
+
+bash
+
+Copy
+git checkout -b development
+Here's what it does:
+
+git checkout: The command for switching branches.
+
+-b: This flag creates a new branch if it doesn't already exist.
+
+development: The name of the new branch you're creating.
+
+So running git checkout -b development will create the development branch and switch you to it. Got any other Git queries or something else on your mind?
+
+
+PS E:\ws-abhimanyu\Collection-Framework-Map-using-Java17> git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+
+PS E:\ws-abhimanyu\Collection-Framework-Map-using-Java17> git push
+Enumerating objects: 166, done.
+Counting objects: 100% (166/166), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (95/95), done.
+Writing objects: 100% (165/165), 54.44 KiB | 1.43 MiB/s, done.
+Total 165 (delta 26), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (26/26), done.
+To https://github.com/abhimanyu-stream/Collection-Framework-Map-using-Java17.git
+   3b4c26f..14910f9  main -> main
+
+
+
+

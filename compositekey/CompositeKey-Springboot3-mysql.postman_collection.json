@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "6c83fea2-4dcb-4c44-b364-e88000549f3e",
+		"name": "CompositeKey-Springboot3-mysql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25143373"
+	},
+	"item": [
+		{
+			"name": "localhost:8999/users/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userType\": \"admin\",\r\n    \"email\": \"johndoe5example.com\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"isActive\": true \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8999/users/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8999",
+					"path": [
+						"users",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8999/users/create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"userType\": \"admin\",\r\n    \"email\": \"johndoe5example.com\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"isActive\": true \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8999/users/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8999",
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Oct 2024 21:51:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"userType\": \"admin\",\n    \"email\": \"johndoe5example.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"isActive\": true\n}"
+				},
+				{
+					"name": "localhost:8999/users/create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userType\": \"admin\",\r\n    \"email\": \"johndoe5example.com\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"isActive\": true \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8999/users/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8999",
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Oct 2024 22:28:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"219c28d4-7ec9-46ae-882a-fd6e3a795166\",\n    \"userType\": \"admin\",\n    \"email\": \"johndoe5example.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"isActive\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost:8999/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8999/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8999",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8999/users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8999/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8999",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Oct 2024 21:51:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"userType\": \"admin\",\n        \"email\": \"johndoe@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"isActive\": false\n    },\n    {\n        \"id\": 2,\n        \"userType\": \"admin\",\n        \"email\": \"johndoe@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"isActive\": false\n    },\n    {\n        \"id\": 3,\n        \"userType\": \"admin\",\n        \"email\": \"johndoe3@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"isActive\": false\n    },\n    {\n        \"id\": 4,\n        \"userType\": \"admin\",\n        \"email\": \"johndoe4example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"isActive\": true\n    },\n    {\n        \"id\": 5,\n        \"userType\": \"admin\",\n        \"email\": \"johndoe5example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"isActive\": true\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": " localhost:8999/users/5/email/johndoe5@example.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8999/users/5/email/johndoe5example.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8999",
+					"path": [
+						"users",
+						"5",
+						"email",
+						"johndoe5example.com"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8999/users/5/email/johndoe5@example.com",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8999/users/5/email/johndoe5example.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8999",
+							"path": [
+								"users",
+								"5",
+								"email",
+								"johndoe5example.com"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Disposition",
+							"value": "inline;filename=f.txt"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Oct 2024 21:58:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"userType\": \"admin\",\n    \"email\": \"johndoe5example.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"isActive\": true\n}"
+				}
+			]
+		}
+	]
+}
