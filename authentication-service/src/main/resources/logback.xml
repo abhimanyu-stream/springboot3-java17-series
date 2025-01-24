@@ -1,0 +1,39 @@
+<configuration>
+    <property name="LOG_ROOT" value="E:/Bin/logs" />
+    <property name="LOG_FILE_NAME" value="application" />
+
+    <!-- Console Appender -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1}): %msg%n%throwable
+            </pattern>
+        </layout>
+    </appender>
+
+    <!-- Rolling File Appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_ROOT}/${LOG_FILE_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ROOT}/${LOG_FILE_NAME}-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>30MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Specific Logger -->
+    <logger name="com.stream.authentication" level="INFO" additivity="false">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="Console"/>
+    </logger>
+
+    <!-- Root Logger -->
+    <root level="ERROR">
+        <appender-ref ref="Console" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

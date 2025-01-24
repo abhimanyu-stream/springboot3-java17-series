@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.stream.cqrswritedbreaddb.read_query.model.ProductView;
 
-
+// implement mongodb because of high read opertation
 @Repository
 public interface ProductReadRepository extends JpaRepository<ProductView, Long>{
 
